@@ -21,6 +21,7 @@
     "grunt": "~0.4.1",
     "grunt-ember-templates": "~0.4.15",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-contrib-concat": "~0.3.0",
+    "karma-qunit": "~0.1.1"
   }
 }
