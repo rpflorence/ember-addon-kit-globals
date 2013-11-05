@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -39,6 +41,9 @@ module.exports = function(grunt) {
     }
   });
   grunt.registerTask('default', ['emberTemplates', 'watch']);
-  grunt.registerTask('dist', ['emberTemplates', 'concat']);
+  grunt.registerTask('dist', ['emberTemplates', 'concat'], function() {
+    var src = fs.readFileSync('dist/x-foo.js').toString();
+    fs.writeFileSync('dist/x-foo.amd.js', "define(['ember'], function(Ember) {\n"+src+"\n  return ns;\n});");
+  });
 };
 
